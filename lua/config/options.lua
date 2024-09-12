@@ -25,3 +25,4 @@ opt.splitbelow = true
 opt.splitright = true
 opt.splitkeep = "cursor"
 opt.mouse = ""
+opt.clipboard = "unnamedplus"
