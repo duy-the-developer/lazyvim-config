@@ -16,18 +16,13 @@ keymap.set("n", "<C-A>", "gg<S-v>G")
 
 -- New tab
 keymap.set("n", "te", ":tabedit", opts)
-keymap.set("n", "<tab>", ":tabnext<Return>", opts)
-keymap.set("n", "<S-tab>", ":tabprev<Return>", opts)
+-- Disabled the following keymaps because it messes up <C-i>
+-- keymap.set("n", "<tab>", ":tabnext<Return>", opts)
+-- keymap.set("n", "<S-tab>", ":tabprev<Return>", opts)
 
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
-
--- Move window
-keymap.set("n", "<C-h>", "<C-w>h", opts)
-keymap.set("n", "<C-j>", "<C-w>j", opts)
-keymap.set("n", "<C-k>", "<C-w>k", opts)
-keymap.set("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize window
 keymap.set("n", "<C-w><left>", "<C-w><", opts)
@@ -36,6 +31,20 @@ keymap.set("n", "<C-w><down>", "<C-w>-", opts)
 keymap.set("n", "<C-w><up>", "<C-w>+", opts)
 
 -- Diagnostics
--- keymap.set("n", "<C-j>", function()
---   vim.diagnostic.goto_next()
--- end, opts)
+keymap.set("n", "<leader>df", function()
+  vim.diagnostic.open_float()
+end, {
+  noremap = true,
+  silent = true,
+  desc = "Open floating diagnostic",
+})
+keymap.set("n", "<leader>dn", function()
+  vim.diagnostic.goto_next()
+end, {
+  noremap = true,
+  silent = true,
+  desc = "Go to next diagnostic",
+})
+keymap.set("n", "<leader>dp", function()
+  vim.diagnostic.goto_prev()
+end, opts)

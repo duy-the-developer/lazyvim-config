@@ -1,5 +1,10 @@
 return {
   {
+    "cranberry-clockworks/coal.nvim",
+    lazy = true,
+    priority = 1000,
+  },
+  {
     "craftzdog/solarized-osaka.nvim",
     lazy = true,
     priority = 1000,
@@ -12,7 +17,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "solarized-osaka",
+      colorscheme = "tokyonight-storm",
     },
   },
 }
